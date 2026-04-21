@@ -11,13 +11,19 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ================= AWS CONFIG =================
-AWS.config.update({
-  accessKeyId: "KIAXML6424LPYN25JEO",
-  secretAccessKey: "gcnMgoww+pKZ1Jgs8mnZczrp//bMbYVMJHqEh6Dn",
-  region: "ap-south-1", // change if needed
+
+app.get("/", (req, res) => {
+  res.send("Backend is running 🚀");
 });
 
+
+
+// ================= AWS CONFIG =================
+AWS.config.update({
+  accessKeyId: process.env.AWS_ACCESS_KEY,
+  secretAccessKey: process.env.AWS_SECRET_KEY,
+  region: "ap-south-1",
+});
 const s3 = new AWS.S3();
 
 // ================= MULTER CONFIG =================
