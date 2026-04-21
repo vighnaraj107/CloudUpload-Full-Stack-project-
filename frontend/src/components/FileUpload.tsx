@@ -3,7 +3,7 @@ import { Upload, X, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 
-const API_BASE = "http://16.171.112.244:3000";
+const API_BASE = "https://cloudupload-full-stack-project.onrender.com/";
 
 interface FileUploadProps {
   onUploadComplete: () => void;

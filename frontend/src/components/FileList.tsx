@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import FileCard from "./FileCard";
 
-const API_BASE = "http://16.171.112.244:3000";
+const API_BASE = "https://cloudupload-full-stack-project.onrender.com/";
 
 interface FileItem {
   name: string;
