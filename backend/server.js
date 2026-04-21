@@ -63,7 +63,8 @@ app.get("/files", async (req, res) => {
 
     const data = await s3.listObjectsV2(params).promise();
 
-    const files = data.Contents.map((item) => ({
+    // ✅ SAFE FIX
+    const files = (data.Contents || []).map((item) => ({
       name: item.Key,
       url: `https://vighnaraj-cloud-file-upload.s3.amazonaws.com/${item.Key}`,
     }));
@@ -72,7 +73,7 @@ app.get("/files", async (req, res) => {
 
   } catch (err) {
     console.error("FULL ERROR:", JSON.stringify(err, null, 2));
-  res.status(500).json([]);
+    res.status(500).json([]);
   }
 });
 
