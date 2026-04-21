@@ -71,8 +71,8 @@ app.get("/files", async (req, res) => {
     res.json(files);
 
   } catch (err) {
-    console.error("S3 ERROR:", err); 
-    res.status(500).json([]);  
+    console.error("FULL ERROR:", JSON.stringify(err, null, 2));
+  res.status(500).json([]);
   }
 });
 
