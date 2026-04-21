@@ -41,15 +41,15 @@ const FileUpload = ({ onUploadComplete }: FileUploadProps) => {
     if (!selectedFile) return;
 
     const token = localStorage.getItem("token");
-    if (!token) {
-      setStatus("error");
-      setMessage("You must be logged in to upload files.");
-      return;
-    }
+   const handleUpload = async () => {
+   if (!selectedFile) return;
 
-    setUploading(true);
-    setProgress(0);
-    setStatus("idle");
+  setUploading(true);
+  setProgress(0);
+  setStatus("idle");
+
+  // rest of your upload code...
+};
 
     const formData = new FormData();
     formData.append("file", selectedFile);
