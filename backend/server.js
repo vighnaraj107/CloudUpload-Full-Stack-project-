@@ -66,7 +66,7 @@ app.get("/files", async (req, res) => {
     // ✅ SAFE FIX
     const files = (data.Contents || []).map((item) => ({
       name: item.Key,
-      url: `https://vighnaraj-cloud-file-upload.s3.amazonaws.com/${item.Key}`,
+      url: `https://vighnaraj-cloud-file-upload.s3.eu-north-1.amazonaws.com/${item.Key}`,
     }));
 
     res.json(files);
