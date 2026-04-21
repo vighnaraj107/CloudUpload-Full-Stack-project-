@@ -63,7 +63,8 @@ app.get("/files", async (req, res) => {
 
     const data = await s3.listObjectsV2(params).promise();
 
-    // ✅ SAFE FIX
+    console.log("S3 DATA:", JSON.stringify(data, null, 2)); // 👈 ADD THIS
+
     const files = (data.Contents || []).map((item) => ({
       name: item.Key,
       url: `https://vighnaraj-cloud-file-upload.s3.eu-north-1.amazonaws.com/${item.Key}`,
